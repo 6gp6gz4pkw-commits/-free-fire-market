@@ -3,71 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090610">
 <title>FREE FIRE MARKET</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090610;color:white;font-family:Arial,sans-serif}
-header{text-align:center;padding:28px 10px;background:#160d24;border-bottom:2px solid #a020f0}
-h1{color:#d580ff;margin:0}
+body{
+ margin:0;background:#090610;color:#fff;
+ font-family:Arial,sans-serif;
+}
+header{
+ text-align:center;padding:25px 12px;
+ background:#160d24;border-bottom:2px solid #a020f0;
+}
+h1{color:#df9aff;margin:0;font-size:27px}
 header p{color:#c7b5d8}
-main{max-width:900px;margin:auto;padding:20px}
-input{width:100%;padding:14px;border-radius:12px;border:1px solid #a020f0;background:#171020;color:white;margin-bottom:20px;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:#171020;border:1px solid #542477;border-radius:16px;padding:18px;box-shadow:0 0 15px #7e22ce20}
-.icon{font-size:48px;text-align:center;padding:10px}
-.tag{color:#e6a6ff;font-size:12px}
-h2{font-size:19px}
-.desc{color:#c3b5d0;font-size:14px;min-height:38px}
-.price{font-size:21px;font-weight:bold;color:#e5a1ff;margin:18px 0}
-button,.contact{display:block;width:100%;padding:13px;background:linear-gradient(90deg,#7e22ce,#c026d3);color:white;border:0;border-radius:10px;font-weight:bold;font-size:15px;text-align:center;text-decoration:none;cursor:pointer}
-.contact{margin-top:25px}
+main{max-width:1000px;margin:auto;padding:18px}
+.hero{text-align:center;padding:25px 0}
+.hero h2{font-size:32px;margin:8px}
+.hero span{color:#d580ff}
+input,textarea,select{
+ width:100%;padding:13px;margin:7px 0;
+ border-radius:10px;border:1px solid #63318a;
+ background:#171020;color:white;font-size:15px;
+}
+button,.btn{
+ display:inline-block;padding:12px 15px;
+ border:0;border-radius:10px;
+ background:linear-gradient(90deg,#7e22ce,#c026d3);
+ color:white;font-weight:bold;cursor:pointer;
+ text-decoration:none;text-align:center;
+}
+button:active,.btn:active{transform:scale(.97)}
+.toolbar{margin-bottom:20px}
+.grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:15px;
+}
+.card{
+ overflow:hidden;background:#171020;
+ border:1px solid #542477;border-radius:16px;
+ box-shadow:0 0 18px #a020f018;
+ transition:.2s;
+}
+.card:hover{transform:translateY(-4px);border-color:#c026d3}
+.cover{
+ height:145px;display:flex;align-items:center;
+ justify-content:center;font-size:58px;
+ background:radial-gradient(circle,#542477,#1a0e29 65%,#100a17);
+}
+.cardbody{padding:15px}
+.tag{color:#e6a6ff;font-size:11px;font-weight:bold}
+.card h3{margin:9px 0}
+.desc{font-size:13px;color:#c3b5d0;line-height:1.5}
+.price{font-size:20px;font-weight:bold;color:#e5a1ff;margin:15px 0}
+.buy{width:100%}
+.section{
+ margin:28px 0;padding:18px;
+ background:#140e20;border:1px solid #542477;
+ border-radius:16px;
+}
+.section h2{margin-top:0;color:#e5a1ff}
+.hidden{display:none}
 footer{text-align:center;color:#8f809d;padding:25px;font-size:12px}
+@media(max-width:720px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cover{height:120px}
+ .cardbody{padding:12px}
+ .card h3{font-size:16px}
+ .price{font-size:17px}
+}
+@media(max-width:450px){
+ .grid{grid-template-columns:1fr}
+ .cover{height:155px}
+ .hero h2{font-size:27px}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>🔥 FREE FIRE MARKET</h1>
-<p>Твой аккаунт — твоя история 💜</p>
+ <h1>🔥 FREE FIRE MARKET</h1>
+ <p>Твой аккаунт — твоя история 💜</p>
 </header>
+
 <main>
-<input id="search" placeholder="🔎 Найти аккаунт..." oninput="searchItems()">
-<div class="grid" id="catalog">
-<div class="card" data-name="Стартовый аккаунт">
-<div class="icon">🎯</div><span class="tag">СТАРТ</span>
-<h2>Стартовый аккаунт</h2>
-<p class="desc">Добавь характеристики аккаунта.</p>
-<div class="price">50 000 сум</div>
-<button onclick="buy('Стартовый аккаунт')">🛒 Купить</button>
-</div>
-<div class="card" data-name="Продвинутый аккаунт">
-<div class="icon">🔥</div><span class="tag">ПОПУЛЯРНЫЙ</span>
-<h2>Продвинутый аккаунт</h2>
-<p class="desc">Добавь информацию о скинах и уровне.</p>
-<div class="price">150 000 сум</div>
-<button onclick="buy('Продвинутый аккаунт')">🛒 Купить</button>
-</div>
-<div class="card" data-name="Премиум аккаунт">
-<div class="icon">👑</div><span class="tag">PREMIUM</span>
-<h2>Премиум аккаунт</h2>
-<p class="desc">Добавь описание редких предметов.</p>
-<div class="price">300 000 сум</div>
-<button onclick="buy('Премиум аккаунт')">🛒 Купить</button>
-</div>
-</div>
-<a class="contact" href="https://t.me/eciwe" target="_blank" rel="noopener">✉️ Написать в Telegram</a>
+ <section class="hero">
+  <h2>Найди свой <span>аккаунт</span></h2>
+  <p>Выбирай аккаунт и оформляй заказ через Telegram!</p>
+ </section>
+
+ <div class="toolbar">
+  <input id="search" placeholder="🔎 Поиск аккаунтов..." oninput="render()">
+ </div>
+
+ <section class="grid" id="catalog"></section>
+
+ <section class="section">
+  <h2>📩 Связаться с продавцом</h2>
+  <p>Есть вопросы? Напиши нам в Telegram.</p>
+  <a class="btn" href="https://t.me/eciwe" target="_blank" rel="noopener">
+   Написать @eciwe
+  </a>
+ </section>
+
+ <section class="section">
+  <h2>👑 Управление каталогом</h2>
+  <p class="desc">
+   Добавляй карточки в этом браузере.
+   Новые карточки сохраняются на этом устройстве.
+  </p>
+
+  <input id="name" placeholder="Название аккаунта">
+  <textarea id="description" placeholder="Описание аккаунта"></textarea>
+
+  <select id="icon">
+   <option value="🎯">🎯 Стартовый</option>
+   <option value="🔥">🔥 Продвинутый</option>
+   <option value="👑">👑 Премиум</option>
+   <option value="💎">💎 Редкий</option>
+   <option value="⚡">⚡ Особенный</option>
+  </select>
+
+  <button onclick="addItem()">➕ Добавить аккаунт</button>
+ </section>
 </main>
-<footer>FREE FIRE MARKET © 2026<br>Неофициальный фанатский каталог.</footer>
+
+<footer>
+ FREE FIRE MARKET © 2026<br>
+ Неофициальный фанатский каталог.
+</footer>
+
 <script>
-function searchItems(){
-const q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.card').forEach(card=>{
-card.style.display=card.dataset.name.toLowerCase().includes(q)?'block':'none';
-});
+const KEY = "ff_market_items_v2";
+
+const defaults = [
+ {
+  id:1,
+  name:"Стартовый аккаунт",
+  description:"Демонстрационная карточка. Скоро здесь будет описание!",
+  icon:"🎯"
+ },
+ {
+  id:2,
+  name:"Продвинутый аккаунт",
+  description:"Добавь характеристики и информацию о скинах.",
+  icon:"🔥"
+ },
+ {
+  id:3,
+  name:"Премиум аккаунт",
+  description:"Демонстрационная карточка премиум-категории.",
+  icon:"👑"
+ }
+];
+
+let items;
+
+try {
+ items = JSON.parse(localStorage.getItem(KEY)) || defaults;
+} catch(e) {
+ items = defaults;
 }
-function buy(item){
-const text=encodeURIComponent('Здравствуйте! Хочу узнать подробнее: '+item);
-window.open('https://t.me/eciwe?text='+text,'_blank','noopener');
+
+function save(){
+ localStorage.setItem(KEY,JSON.stringify(items));
 }
+
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const catalog=document.getElementById("catalog");
+
+ catalog.innerHTML="";
+
+ items.filter(item=>
+  (item.name+" "+item.description).toLowerCase().includes(q)
+ ).forEach(item=>{
+  const card=document.createElement("article");
+  card.className="card";
+
+  const cover=document.createElement("div");
+  cover.className="cover";
+  cover.textContent=item.icon;
+
+  const body=document.createElement("div");
+  body.className="cardbody";
+
+  const tag=document.createElement("div");
+  tag.className="tag";
+  tag.textContent="FREE FIRE";
+
+  const title=document.createElement("h3");
+  title.textContent=item.name;
+
+  const desc=document.createElement("p");
+  desc.className="desc";
+  desc.textContent=item.description;
+
+  const price=document.createElement("div");
+  price.className="price";
+  price.textContent="Договорная";
+
+  const buy=document.createElement("button");
+  buy.className="buy";
+  buy.textContent="🛒 Купить";
+  buy.onclick=()=>order(item.name);
+
+  body.append(tag,title,desc,price,buy);
+  card.append(cover,body);
+  catalog.append(card);
+ });
+}
+
+function addItem(){
+ const name=document.getElementById("name").value.trim();
+ const description=document.getElementById("description").value.trim();
+ const icon=document.getElementById("icon").value;
+
+ if(!name){
+  alert("Введи название аккаунта!");
+  return;
+ }
+
+ items.push({
+  id:Date.now(),
+  name,
+  description:description || "Подробности уточняйте у продавца.",
+  icon
+ });
+
+ save();
+ render();
+
+ document.getElementById("name").value="";
+ document.getElementById("description").value="";
+
+ alert("Аккаунт добавлен в каталог этого браузера!");
+}
+
+function order(name){
+ const message=encodeURIComponent(
+  "Здравствуйте! Интересует аккаунт: "+name+
+  ". Подскажите цену и условия покупки."
+ );
+
+ window.open("https://t.me/eciwe?text="+message,"_blank");
+}
+
+render();
 </script>
+
 </body>
 </html>
