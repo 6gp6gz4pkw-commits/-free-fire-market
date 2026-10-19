@@ -2,129 +2,71 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090711">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FREE FIRE MARKET</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#090711;color:#fff}
-header{padding:22px 16px;background:#100b20;border-bottom:1px solid #8b35ff}
-.logo{font-size:24px;font-weight:900;color:#c18aff}
-.logo span{color:#fff}
-header p{font-size:12px;color:#b9accb;margin-top:6px}
-.hero{text-align:center;padding:55px 18px 38px;background:radial-gradient(ellipse at top,#492080 0%,#160d27 45%,#090711 80%)}
-.badge{display:inline-block;padding:7px 12px;border:1px solid #9e5aff;border-radius:20px;color:#d7b4ff;font-size:11px;letter-spacing:1px}
-h1{font-size:38px;line-height:1.12;margin:20px 0 12px}
-h1 span{color:#bd83ff}
-.hero p{color:#c0b6d0;font-size:14px;line-height:1.6;max-width:330px;margin:auto}
-.button{display:inline-block;margin-top:22px;background:linear-gradient(100deg,#7c2bdb,#bd67ff);padding:14px 23px;border-radius:12px;color:#fff;text-decoration:none;font-weight:bold;box-shadow:0 0 25px #8b35ff44}
-section{padding:28px 16px}
-.section-title{font-size:23px;margin-bottom:7px}
-.sub{font-size:13px;color:#a99bb9;margin-bottom:22px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.filter{border:1px solid #38264e;background:#151020;color:#d5c5e8;padding:9px 12px;border-radius:9px;font-size:12px}
-.filter.active{background:#782bd0;color:white;border-color:#b46cff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:linear-gradient(145deg,#1b1329,#100d19);border:1px solid #352248;border-radius:15px;overflow:hidden}
-.card-top{height:100px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#63309b,#211331 70%);font-size:39px}
-.card-body{padding:12px}
-.tag{font-size:10px;color:#d2a9ff;background:#392052;padding:5px 7px;border-radius:6px;display:inline-block;margin-bottom:9px}
-.card h3{font-size:14px;margin-bottom:7px}
-.card p{font-size:11px;color:#b4a8c3;line-height:1.5;min-height:32px}
-.price{font-size:17px;font-weight:bold;color:#d3a1ff;margin:12px 0}
-.buy{display:block;text-align:center;text-decoration:none;background:#7e35c6;color:white;border-radius:8px;padding:10px 5px;font-size:12px;font-weight:bold}
-.notice{background:#151020;border:1px solid #342344;border-radius:12px;padding:15px;color:#bcb0ca;font-size:12px;line-height:1.7;margin-top:20px}
-footer{text-align:center;padding:28px 16px;border-top:1px solid #2b1c3c;color:#92849f;font-size:12px;line-height:1.8}
-footer strong{color:#c18aff}
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding:80px 20px}h1{font-size:52px}section{max-width:900px;margin:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:#090610;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 10px;background:#160d24;border-bottom:2px solid #a020f0}
+h1{color:#d580ff;margin:0}
+header p{color:#c7b5d8}
+main{max-width:900px;margin:auto;padding:20px}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #a020f0;background:#171020;color:white;margin-bottom:20px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:#171020;border:1px solid #542477;border-radius:16px;padding:18px;box-shadow:0 0 15px #7e22ce20}
+.icon{font-size:48px;text-align:center;padding:10px}
+.tag{color:#e6a6ff;font-size:12px}
+h2{font-size:19px}
+.desc{color:#c3b5d0;font-size:14px;min-height:38px}
+.price{font-size:21px;font-weight:bold;color:#e5a1ff;margin:18px 0}
+button,.contact{display:block;width:100%;padding:13px;background:linear-gradient(90deg,#7e22ce,#c026d3);color:white;border:0;border-radius:10px;font-weight:bold;font-size:15px;text-align:center;text-decoration:none;cursor:pointer}
+.contact{margin-top:25px}
+footer{text-align:center;color:#8f809d;padding:25px;font-size:12px}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">FREE FIRE <span>MARKET</span></div>
-  <p>💜 Маркетплейс игровых аккаунтов</p>
+<h1>🔥 FREE FIRE MARKET</h1>
+<p>Твой аккаунт — твоя история 💜</p>
 </header>
-<div class="hero">
-  <span class="badge">✦ PREMIUM GAME MARKET ✦</span>
-  <h1>ТВОЙ МИР.<br><span>ТВОЙ АККАУНТ.</span></h1>
-  <p>Находи интересные игровые аккаунты и связывайся с продавцом напрямую.</p>
-  <a class="button" href="#catalog">🎮 Смотреть каталог ↓</a>
+<main>
+<input id="search" placeholder="🔎 Найти аккаунт..." oninput="searchItems()">
+<div class="grid" id="catalog">
+<div class="card" data-name="Стартовый аккаунт">
+<div class="icon">🎯</div><span class="tag">СТАРТ</span>
+<h2>Стартовый аккаунт</h2>
+<p class="desc">Добавь характеристики аккаунта.</p>
+<div class="price">50 000 сум</div>
+<button onclick="buy('Стартовый аккаунт')">🛒 Купить</button>
 </div>
-<section id="catalog">
-  <h2 class="section-title">💎 Каталог аккаунтов</h2>
-  <p class="sub">Выбирай подходящий вариант</p>
-  <div class="filters">
-    <button class="filter active" onclick="showAll(this)">Все товары</button>
-    <button class="filter" onclick="showCategory('basic',this)">Стартовые</button>
-    <button class="filter" onclick="showCategory('rare',this)">Редкие</button>
-  </div>
-  <div class="grid">
-    <article class="card" data-category="basic">
-      <div class="card-top">🎮</div>
-      <div class="card-body">
-        <span class="tag">СТАРТОВЫЙ</span>
-        <h3>Аккаунт новичка</h3>
-        <p>Описание и характеристики уточняются.</p>
-        <div class="price">Цена договорная</div>
-        <a class="buy" href="#contact">Подробнее</a>
-      </div>
-    </article>
-<article class="card" data-category="rare">
-  <div class="card-top">💜</div>
-  <div class="card-body">
-    <span class="tag">РЕДКИЙ</span>
-    <h3>Коллекционный аккаунт</h3>
-    <p>Редкие предметы — по подтверждению продавца.</p>
-    <div class="price">Цена договорная</div>
-    <a class="buy" href="#contact">Подробнее</a>
-  </div>
-</article>
-<article class="card" data-category="rare">
-  <div class="card-top">👑</div>
-  <div class="card-body">
-    <span class="tag">VIP</span>
-    <h3>Премиум аккаунт</h3>
-    <p>Уточни комплектацию и условия сделки.</p>
-    <div class="price">Цена договорная</div>
-    <a class="buy" href="#contact">Подробнее</a>
-  </div>
-</article>
-<article class="card" data-category="basic">
-  <div class="card-top">🔥</div>
-  <div class="card-body">
-    <span class="tag">ПОПУЛЯРНЫЙ</span>
-    <h3>Игровой аккаунт</h3>
-    <p>Подробности можно узнать у продавца.</p>
-    <div class="price">Цена договорная</div>
-    <a class="buy" href="#contact">Подробнее</a>
-  </div>
-</article>
-  </div>
-  <div class="notice">🛡️ <strong>Безопасность:</strong> проверяй данные аккаунта и условия сделки. Не передавай посторонним пароли от своей почты и коды подтверждения. Не публикуй личные данные.</div>
-</section>
-<section id="contact">
-  <h2 class="section-title">📩 Связаться с нами</h2>
-  <p class="sub">По вопросам каталога и размещения товаров</p>
-  <a class="button" href="https://t.me/" target="_blank" rel="noopener">Открыть Telegram</a>
-  <p style="color:#9d90ad;font-size:12px;margin-top:12px">Ссылка пока общая — позже добавим твой контакт.</p>
-</section>
-<footer>
-  <strong>FREE FIRE MARKET</strong><br>
-  Игровой маркетплейс • Неофициальный фан-проект<br>
-  © 2026 FREE FIRE MARKET
-</footer>
+<div class="card" data-name="Продвинутый аккаунт">
+<div class="icon">🔥</div><span class="tag">ПОПУЛЯРНЫЙ</span>
+<h2>Продвинутый аккаунт</h2>
+<p class="desc">Добавь информацию о скинах и уровне.</p>
+<div class="price">150 000 сум</div>
+<button onclick="buy('Продвинутый аккаунт')">🛒 Купить</button>
+</div>
+<div class="card" data-name="Премиум аккаунт">
+<div class="icon">👑</div><span class="tag">PREMIUM</span>
+<h2>Премиум аккаунт</h2>
+<p class="desc">Добавь описание редких предметов.</p>
+<div class="price">300 000 сум</div>
+<button onclick="buy('Премиум аккаунт')">🛒 Купить</button>
+</div>
+</div>
+<a class="contact" href="https://t.me/eciwe" target="_blank" rel="noopener">✉️ Написать в Telegram</a>
+</main>
+<footer>FREE FIRE MARKET © 2026<br>Неофициальный фанатский каталог.</footer>
 <script>
-function showAll(button){
- document.querySelectorAll('.card').forEach(card=>card.style.display='');
- document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
- button.classList.add('active');
+function searchItems(){
+const q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(card=>{
+card.style.display=card.dataset.name.toLowerCase().includes(q)?'block':'none';
+});
 }
-function showCategory(category,button){
- document.querySelectorAll('.card').forEach(card=>{
-  card.style.display=card.dataset.category===category?'':'none';
- });
- document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
- button.classList.add('active');
+function buy(item){
+const text=encodeURIComponent('Здравствуйте! Хочу узнать подробнее: '+item);
+window.open('https://t.me/eciwe?text='+text,'_blank','noopener');
 }
 </script>
 </body>
